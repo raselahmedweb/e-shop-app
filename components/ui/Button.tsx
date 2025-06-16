@@ -1,18 +1,30 @@
-import React from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import React from "react";
+import { DimensionValue, Pressable, StyleSheet, Text } from "react-native";
 
 const Button = ({
   txt,
   radius = 12,
-  color = 'white',
-  bg = '#007bff',
+  color = "white",
+  bg = "#007bff",
   paddingHorizontal = 0,
   paddingVertical = 15,
   fontSize = 18,
-  fontWeight = 'bold',
+  fontWeight = "bold",
   press,
   disabled = false,
-  width = "100%"
+  width = "100%",
+}: {
+  txt: string;
+  radius?: number;
+  color?: string;
+  bg?: string;
+  paddingHorizontal?: number;
+  paddingVertical?: number;
+  fontSize?: number;
+  fontWeight?: any;
+  press?: any;
+  disabled?: boolean;
+  width?: DimensionValue | undefined;
 }) => {
   const buttonStyle = StyleSheet.create({
     button: {
@@ -21,14 +33,14 @@ const Button = ({
       borderRadius: radius,
       paddingHorizontal,
       paddingVertical,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
     },
     text: {
       color: color,
       fontSize: fontSize,
       fontWeight: fontWeight,
-      fontFamily: "Raleway_500Medium"
+      fontFamily: "Raleway_500Medium",
     },
     disabled: {
       opacity: 0.5, // Visually indicate disabled state
@@ -37,7 +49,7 @@ const Button = ({
 
   return (
     <Pressable
-      onPress={()=>press()}
+      onPress={() => press()}
       style={[
         buttonStyle.button,
         disabled && buttonStyle.disabled, // Apply disabled style conditionally

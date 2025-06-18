@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { Image, Text, View } from "react-native";
-export default function ProductCard(props: {
+export default function PopularProductCard(props: {
   img: string;
-  title?: string;
-  description?: string;
-  price?: number;
-  salePrice?: number;
   totalSold?: number;
 }) {
   const [imageSize, setImageSize] = useState(0);
@@ -13,14 +9,10 @@ export default function ProductCard(props: {
     <View
       style={{
         flexDirection: "column",
-        gap: 10,
-        width: 150,
+        gap: 5,
+        width: 100,
         overflow: "visible",
-        paddingTop: 15,
-      }}
-    >
-      <View
-        style={{
+
           borderWidth: 5,
           borderColor: "#fff",
           borderRadius: 8,
@@ -34,7 +26,10 @@ export default function ProductCard(props: {
           // Android shadow
           elevation: 8,
           backgroundColor: "#fff",
-        }}
+        
+      }}
+    >
+      <View
         onLayout={(event) => {
           const width = event.nativeEvent.layout.width;
           setImageSize(width);
@@ -45,32 +40,28 @@ export default function ProductCard(props: {
           style={{
             width: "100%",
             height: imageSize,
-            //  borderRadius: 8,
+            borderRadius: 8
           }}
         />
       </View>
       <View
         style={{
-          flexDirection: "column",
-          gap: 5,
-          padding: 3,
+          flexDirection: "row",
+          gap: 3
         }}
       >
-        <Text style={{
-          fontSize: 14,
-          fontWeight: 'bold'
-        }}>{props.title}</Text>
-        <Text style={{
-          fontSize: 12
-        }}>{props.description && `${props.description.slice(0, 35)}...`}</Text>
         <Text
           style={{
-            fontSize: 22,
+            fontSize: 16,
             fontWeight: "bold",
           }}
         >
-          {`$${props.price}`}
+          {props.totalSold}
         </Text>
+        <Text style={{
+          fontSize: 16,
+          color: 'gray'
+        }}>sold</Text>
       </View>
     </View>
   );

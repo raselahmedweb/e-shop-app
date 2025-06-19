@@ -643,3 +643,46 @@ export const stories = [
     totalLike: 0
   },
 ]
+
+
+export const flashtime = [
+  {
+    flashId: 1,
+    flashName: "Big Friday",
+    startTime: "2025-06-19 04:00:00",
+    endTime: "2025-06-20 04:00:00"
+  }
+]
+
+export const flashproducts = [
+  {
+    productId: 3,
+    flashId: 1,
+    discount: 10
+  },
+  {
+    productId: 5,
+    flashId: 1,
+    discount: 10
+  },
+  {
+    productId: 6,
+    flashId: 1,
+    discount: 15
+  },
+  {
+    productId: 13,
+    flashId: 1,
+    discount: 14
+  },
+  {
+    productId: 15,
+    flashId: 1,
+    discount: 14
+  },
+  {
+    productId: 20,
+    flashId: 1,
+    discount: 14
+  },
+]

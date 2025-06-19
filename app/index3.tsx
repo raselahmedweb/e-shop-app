@@ -30,7 +30,7 @@ import {
 
 const profile = require("@/assets/images/profile.jpg");
 
-export default function Profile() {
+export default function Home() {
   const { theme, colorScheme } = useContext(ThemeContext);
   const parseDate = (date) => {
     if (typeof date === "number") return new Date(date);

@@ -16,7 +16,7 @@ export default function Login() {
   const { theme, colorScheme } = useContext(ThemeContext);
   const styles = createStyle(theme, colorScheme);
 const goHome = () => {
-    router.push("/home")
+    router.push("/profile")
 }
   return (
     <SafeAreaView style={styles.safeArea}>

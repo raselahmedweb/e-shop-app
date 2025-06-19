@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, Text, View } from "react-native";
+import { DimensionValue, Image, Text, View } from "react-native";
 export default function ProductCard(props: {
   img: string;
   title?: string;
@@ -7,6 +7,7 @@ export default function ProductCard(props: {
   price?: number;
   salePrice?: number;
   totalSold?: number;
+  w?: DimensionValue | undefined;
 }) {
   const [imageSize, setImageSize] = useState(0);
   return (
@@ -14,7 +15,7 @@ export default function ProductCard(props: {
       style={{
         flexDirection: "column",
         gap: 10,
-        width: 150,
+        width: props.w || 150,
         overflow: "visible",
         paddingTop: 15,
       }}

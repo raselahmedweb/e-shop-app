@@ -1,12 +1,23 @@
-import { createContext, useState } from "react";
+import { AuthProviderProps } from "@/type/type";
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 
-export const AuthContext = createContext();
+interface AuthContextType {
+  isUser: boolean;
+  setIsUser: Dispatch<SetStateAction<true | false>>;
+  isGuest: boolean;
+  setIsGuest: Dispatch<SetStateAction<true | false>>;
+  isAdmin: boolean;
+  setIsAdmin: Dispatch<SetStateAction<true | false>>;
+}
 
-export const AuthProvider = ({ children }) => {
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isUser, setIsUser] = useState(false);
   const [isGuest, setIsGuest] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const values = {
+  const values: AuthContextType = {
     isUser,
     setIsUser,
     isGuest,
@@ -14,5 +25,5 @@ export const AuthProvider = ({ children }) => {
     isAdmin,
     setIsAdmin,
   };
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

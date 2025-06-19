@@ -1,38 +1,39 @@
 import FlashBox from "@/components/FlashBox";
 import ForYouBox from "@/components/ForYouBox";
+import RecentlyViewd from "@/components/RecentlyViewd";
+import Stories from "@/components/stories";
 import Button from "@/components/ui/Button";
 import CategoryCard from "@/components/ui/CategoryCard";
 import { Icon } from "@/components/ui/IconSymbol";
 import PopularProductCard from "@/components/ui/PopularProductCard";
 import ProductCard from "@/components/ui/ProductCard";
-import Stories from "@/components/ui/StoryPlayer";
 import { ThemeContext } from "@/context/ThemeProvider";
-import {
-  announcement,
-  categories,
-  products,
-  stories,
-} from "@/data/Data";
+import { announcement, categories, products, stories } from "@/data/Data";
 import { Link } from "expo-router";
 import { useContext, useState } from "react";
 import {
-  Image,
-  Modal,
-  Platform,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+    Image,
+    Modal,
+    Platform,
+    Pressable,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from "react-native";
 
 const profile = require("@/assets/images/profile.jpg");
 
-export default function Home() {
-  const { theme, colorScheme } = useContext(ThemeContext);
-  const parseDate = (date) => {
+export default function Profile() {
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext)
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+
+  const { theme, colorScheme } = themeContext;
+
+  const parseDate = (date: any) => {
     if (typeof date === "number") return new Date(date);
     if (typeof date === "string") {
       // for "6/18/25" format
@@ -54,33 +55,6 @@ export default function Home() {
   const popularProducts = [...products]
     .sort((a, b) => b.totalSold - a.totalSold)
     .slice(0, 6); // take top 6
-
-  const [recentlyViewed, setRecentlyViewd] = useState([
-    {
-      id: 9,
-      url: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111076/samples/people/boy-snow-hoodie.jpg",
-    },
-    {
-      id: 8,
-      url: "https://res.cloudinary.com/demo/image/upload/sunglasses.png",
-    },
-    {
-      id: 10,
-      url: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111084/samples/look-up.jpg",
-    },
-    {
-      id: 13,
-      url: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750255831/D1D72D4D-1D49-410C-870A-423B20DE974E_bpidz2.png",
-    },
-    {
-      id: 17,
-      url: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/lingerie2_gqodys.png",
-    },
-    {
-      id: 19,
-      url: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750255830/AB90E177-EBD5-42AF-A94E-05F24787DEE2_znfguf.png",
-    },
-  ]);
 
   const [announce, setAnnounce] = useState([]);
   useState(() => {
@@ -315,69 +289,7 @@ export default function Home() {
             </View>
           </View>
         </Modal>
-        {recentlyViewed && recentlyViewed.length > 0 && (
-          <View
-            style={{
-              width: "100%",
-              flexDirection: "column",
-              // justifyContent: 'flex-start',
-              // alignItems: 'flex-start',
-              gap: 15,
-            }}
-          >
-            <Text
-              style={{
-                color: theme.text,
-                fontSize: 26,
-                fontFamily: "Raleway_800ExtraBold",
-              }}
-            >
-              Recently viewed
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                gap: 10,
-              }}
-            >
-              {recentlyViewed.map((item) => {
-                return (
-                  <View
-                    key={item.id}
-                    style={{
-                      width: 50,
-                      height: 50,
-                      borderRadius: 100,
-                      borderWidth: 5,
-                      borderColor: "#fff",
-                      shadowOffset: {
-                        width: 5,
-                        height: 5,
-                      },
-                      shadowOpacity: 0.3,
-                      shadowRadius: 8,
-                      shadowColor: "#000",
-                      // Android shadow
-                      elevation: 8,
-                      backgroundColor: "#fff",
-                    }}
-                  >
-                    <Image
-                      source={{ uri: item.url }}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: 100,
-                      }}
-                    />
-                  </View>
-                );
-              })}
-            </View>
-          </View>
-        )}
+        <RecentlyViewd />
         <View
           style={{
             width: "100%",
@@ -431,7 +343,16 @@ export default function Home() {
             />
           </View>
         </View>
-        {story && story.length > 0 && <Stories theme={theme} story={story} />}
+        {/* {story && story.length > 0 && <Stories theme={theme} story={story} />} */}
+        {stories.length > 0 && (
+          <View
+            style={{
+              marginVertical: 10,
+            }}
+          >
+            <Stories story={stories} theme={theme} />
+          </View>
+        )}
         <View
           style={{
             width: "100%",
@@ -658,8 +579,8 @@ export default function Home() {
               ))}
           </View>
         </View>
-        <FlashBox/>
-        <ForYouBox/>
+        <FlashBox />
+        <ForYouBox />
       </ScrollView>
     </SafeAreaView>
   );

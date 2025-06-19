@@ -7,7 +7,6 @@ export default function CategoryCard(props: {
   slug?: string;
   totalProduct?: number;
 }) {
-  const [imageSize, setImageSize] = useState(0);
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({
     0: true,
     1: true,
@@ -62,10 +61,6 @@ export default function CategoryCard(props: {
           aspectRatio: 1, // Makes it square
           borderRadius: 8,
           overflow: "hidden",
-        }}
-        onLayout={(event) => {
-          const { width } = event.nativeEvent.layout;
-          setImageSize((width - 2) / 2); // Subtract gap and divide by 2 for grid
         }}
       >
         {/* Top Row */}

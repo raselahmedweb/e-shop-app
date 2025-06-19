@@ -14,4 +14,4 @@ export const Colors = {
     bg: '#151718',
     primary: '#004CFF'
   },
-};
+} as const

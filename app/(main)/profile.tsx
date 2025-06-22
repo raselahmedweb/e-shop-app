@@ -1,14 +1,14 @@
+import CategoryAll from "@/components/CategoryAll";
 import FlashBox from "@/components/FlashBox";
 import ForYouBox from "@/components/ForYouBox";
 import RecentlyViewd from "@/components/RecentlyViewd";
 import Stories from "@/components/stories";
 import Button from "@/components/ui/Button";
-import CategoryCard from "@/components/ui/CategoryCard";
 import { Icon } from "@/components/ui/IconSymbol";
 import PopularProductCard from "@/components/ui/PopularProductCard";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
-import { announcement, categories, products, stories } from "@/data/Data";
+import { announcement, products, stories } from "@/data/Data";
 import { Link } from "expo-router";
 import { useContext, useState } from "react";
 import {
@@ -69,9 +69,6 @@ export default function Profile() {
     setSelectedItem(item);
     setModalVisible(true);
   };
-
-  const [story, setStory] = useState(stories);
-  const [category, setCategory] = useState(categories);
 
   const styles = createStyle(theme, colorScheme);
   return (
@@ -502,83 +499,7 @@ export default function Profile() {
             </View>
           </ScrollView>
         </View>
-        <View
-          style={{
-            width: "100%",
-            flexDirection: "column",
-          }}
-        >
-          <View
-            style={{
-              width: "100%",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                color: theme.text,
-                fontSize: 26,
-                fontFamily: "Raleway_800ExtraBold",
-              }}
-            >
-              Category
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-              }}
-            >
-              <Link
-                style={{
-                  color: theme.text,
-                  fontWeight: "bold",
-                  fontSize: 22,
-                }}
-                href={"/"}
-              >
-                See All
-              </Link>
-              <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 100,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: theme.primary,
-                }}
-              >
-                <Icon name="arrow-right-alt" color="#fff" size={28} />
-              </View>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-
-              paddingHorizontal: 5,
-              overflow: "visible",
-              paddingVertical: 15,
-            }}
-          >
-            {category &&
-              category.length > 0 &&
-              category.map((item, index) => (
-                <CategoryCard
-                  key={index}
-                  img={item.imageUrl}
-                  name={item.name}
-                  slug={item.slug}
-                  totalProduct={item.totalProduct}
-                />
-              ))}
-          </View>
-        </View>
+        <CategoryAll theme={theme} />
         <FlashBox />
         <ForYouBox />
       </ScrollView>

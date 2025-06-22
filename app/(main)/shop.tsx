@@ -1,30 +1,25 @@
+import CategoryAll from "@/components/CategoryAll";
 import FlashBox from "@/components/FlashBox";
 import ForYouBox from "@/components/ForYouBox";
-import RecentlyViewd from "@/components/RecentlyViewd";
 import Stories from "@/components/stories";
-import Button from "@/components/ui/Button";
+import SwipBanner from "@/components/SwipableBanner";
 import CategoryCard from "@/components/ui/CategoryCard";
 import { Icon } from "@/components/ui/IconSymbol";
 import PopularProductCard from "@/components/ui/PopularProductCard";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
-import { announcement, banners, categories, products, stories } from "@/data/Data";
+import { announcement, categories, products, stories } from "@/data/Data";
 import { Link } from "expo-router";
 import { useContext, useState } from "react";
 import {
-  Image,
-  Modal,
   Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from "react-native";
-
-const profile = require("@/assets/images/profile.jpg");
 
 export default function Profile() {
   const themeContext = useContext(ThemeContext);
@@ -42,11 +37,11 @@ export default function Profile() {
     }
     return new Date(); // fallback
   };
-  const today = new Date();
+  const today: any = new Date();
 
   const sortedProducts = [...products].sort((a, b) => {
-    const dateA = parseDate(a.createdAt);
-    const dateB = parseDate(b.createdAt);
+    const dateA: any = parseDate(a.createdAt);
+    const dateB: any = parseDate(b.createdAt);
     return Math.abs(dateA - today) - Math.abs(dateB - today);
   });
 
@@ -65,12 +60,12 @@ export default function Profile() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const openModal = (item) => {
+  const openModal = (item: any) => {
     setSelectedItem(item);
     setModalVisible(true);
   };
 
-  const [category, setCategory] = useState(categories);
+  const category = categories;
 
   const styles = createStyle(theme, colorScheme);
   return (
@@ -101,7 +96,7 @@ export default function Profile() {
               flexDirection: "row",
               alignItems: "center",
               flex: 1,
-              marginTop: 5
+              marginTop: 5,
             }}
           >
             <View style={{ width: "100%" }}>
@@ -118,184 +113,20 @@ export default function Profile() {
                 }}
               />
             </View>
-            <View style={{
-              position:'absolute',
-              top: 8,
-              right: 10
-            }}>
+            <View
+              style={{
+                position: "absolute",
+                top: 8,
+                right: 10,
+              }}
+            >
               <Icon name="camera-alt" size={24} color={theme.primary} />
             </View>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-          }}
-        >
-          {banners.map((item)=>{
-            return(
-              <View key={item.id} style={{
-                backgroundColor: item.bg,
-                width: '100%',
-                position: 'relative',
-                padding: 20,
-                flexDirection: 'column'
-              }}>
-                <Text style={{
-                  fontSize: 40,
-                  fontFamily: 'Raleway_700Bold'
-                }}>{item.title}</Text>
-                <Text style={{
-                  fontSize: 20,
-                  fontFamily: 'Raleway_700Bold'
-                }}>{item.descountDesc}</Text>
-                <Text style={{
-                  fontSize: 30,
-                  fontFamily: 'Raleway_700Bold'
-                }}>{item.shortTitle}</Text>
-                <Image src={item.image.url} style={{
-                  position: 'absolute',
-                  top: 10,
-                  right: 10
-                }} />
-              </View>
-            )
-          })}
-        </View>
-        {announce &&
-          announce.length > 0 &&
-          announce.map((data) => (
-            <View
-              key={data.id}
-              style={{
-                width: "100%",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                backgroundColor: "#f2f2f2",
-                padding: 15,
-                borderRadius: 20,
-                gap: 5,
-                marginBottom: 10,
-              }}
-            >
-              <Text
-                style={{
-                  color: theme.text,
-                  fontSize: 26,
-                  fontFamily: "Raleway_800ExtraBold",
-                }}
-              >
-                {data.title}
-              </Text>
+        <SwipBanner />
+        <CategoryAll theme={theme} />
 
-              <View
-                style={{
-                  flexDirection: "column",
-                  gap: 5,
-                  alignItems: "flex-start",
-                }}
-              >
-                <Text
-                  style={{
-                    color: theme.text,
-                    fontSize: 18,
-                    fontFamily: "Raleway_400Regular",
-                  }}
-                >
-                  {data.description && data.description.length > 90
-                    ? `${data.description.slice(0, 90)}...`
-                    : data.description}
-                </Text>
-
-                {data.description.length > 90 && (
-                  <TouchableOpacity onPress={() => openModal(data)}>
-                    <Text style={{ color: "#007bff", fontWeight: "bold" }}>
-                      Read More
-                    </Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-            </View>
-          ))}
-        {/* modal after click in announce */}
-        <Modal
-          visible={modalVisible}
-          animationType="slide"
-          transparent={true}
-          onRequestClose={() => setModalVisible(false)}
-        >
-          <View style={styles.modalOverlay}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>{selectedItem?.title}</Text>
-              <Text style={styles.modalDescription}>
-                {selectedItem?.description}
-              </Text>
-              <TouchableOpacity
-                onPress={() => setModalVisible(false)}
-                style={styles.closeButton}
-              >
-                <Text style={{ color: "#fff", fontWeight: "bold" }}>Close</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
-        <RecentlyViewd />
-        <View
-          style={{
-            width: "100%",
-            flexDirection: "column",
-            gap: 15,
-          }}
-        >
-          <Text
-            style={{
-              color: theme.text,
-              fontSize: 26,
-              fontFamily: "Raleway_800ExtraBold",
-            }}
-          >
-            My Orders
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: 10,
-            }}
-          >
-            <Button
-              txt="To Pay"
-              width={90}
-              paddingVertical={10}
-              press={console.log("object")}
-              bg="#007bff10"
-              color={theme.primary}
-              radius={100}
-            />
-            <Button
-              txt="To Receive"
-              width={120}
-              paddingVertical={10}
-              press={console.log("object")}
-              bg="#007bff10"
-              color={theme.primary}
-              radius={100}
-            />
-            <Button
-              txt="To Review"
-              width={120}
-              paddingVertical={10}
-              press={console.log("object")}
-              bg="#007bff10"
-              color={theme.primary}
-              radius={100}
-            />
-          </View>
-        </View>
         {/* {story && story.length > 0 && <Stories theme={theme} story={story} />} */}
         {stories.length > 0 && (
           <View

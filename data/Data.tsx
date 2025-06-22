@@ -58,7 +58,9 @@ export const products = [
     gender: "children",
     price: 80,
     salePrice: 65,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750111082/samples/shoe.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111082/samples/shoe.jpg",
+    ],
     categoryId: 5,
     stock: 40,
     totalSold: 70,
@@ -81,7 +83,9 @@ export const products = [
     gender: "male",
     price: 300,
     salePrice: 270,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/watch4_gapvul.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/watch4_gapvul.png",
+    ],
     categoryId: 6,
     stock: 20,
     totalSold: 90,
@@ -104,7 +108,9 @@ export const products = [
     gender: "female",
     price: 120,
     salePrice: 95,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750255830/84439DCD-10EF-4585-80F8-D23D06DFBC5E_m4vlhl.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750255830/84439DCD-10EF-4585-80F8-D23D06DFBC5E_m4vlhl.png",
+    ],
     categoryId: 2,
     stock: 70,
     totalSold: 140,
@@ -127,7 +133,9 @@ export const products = [
     gender: "male",
     price: 150,
     salePrice: 130,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/hoodies3_ukrltb.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/hoodies3_ukrltb.png",
+    ],
     categoryId: 1,
     stock: 90,
     totalSold: 200,
@@ -196,7 +204,9 @@ export const products = [
     gender: "children",
     price: 60,
     salePrice: 50,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750111076/samples/people/boy-snow-hoodie.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111076/samples/people/boy-snow-hoodie.jpg",
+    ],
     categoryId: 5,
     stock: 100,
     totalSold: 210,
@@ -219,7 +229,9 @@ export const products = [
     gender: "male",
     price: 200,
     salePrice: 160,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750111084/samples/look-up.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111084/samples/look-up.jpg",
+    ],
     categoryId: 1,
     stock: 45,
     totalSold: 90,
@@ -242,7 +254,9 @@ export const products = [
     gender: "female",
     price: 180,
     salePrice: 150,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750111086/cld-sample-5.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111086/cld-sample-5.jpg",
+    ],
     categoryId: 2,
     stock: 70,
     totalSold: 130,
@@ -265,7 +279,9 @@ export const products = [
     gender: "male",
     price: 300,
     salePrice: 245,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750261125/th_jqy7th.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750261125/th_jqy7th.jpg",
+    ],
     categoryId: 7,
     stock: 60,
     totalSold: 190,
@@ -288,7 +304,9 @@ export const products = [
     gender: "female",
     price: 500,
     salePrice: 420,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750255831/D1D72D4D-1D49-410C-870A-423B20DE974E_bpidz2.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750255831/D1D72D4D-1D49-410C-870A-423B20DE974E_bpidz2.png",
+    ],
     categoryId: 3,
     stock: 25,
     totalSold: 30,
@@ -357,7 +375,9 @@ export const products = [
     gender: "male",
     price: 140,
     salePrice: 115,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750111075/samples/people/kitchen-bar.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750111075/samples/people/kitchen-bar.jpg",
+    ],
     categoryId: 1,
     stock: 75,
     totalSold: 130,
@@ -380,7 +400,9 @@ export const products = [
     gender: "female",
     price: 85,
     salePrice: 70,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/lingerie2_gqodys.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750112660/lingerie2_gqodys.png",
+    ],
     categoryId: 2,
     stock: 100,
     totalSold: 220,
@@ -403,7 +425,9 @@ export const products = [
     gender: "children",
     price: 60,
     salePrice: 50,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750261263/th_1_zjveum.jpg"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750261263/th_1_zjveum.jpg",
+    ],
     categoryId: 5,
     stock: 80,
     totalSold: 140,
@@ -426,7 +450,9 @@ export const products = [
     gender: "male",
     price: 95,
     salePrice: 80,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750255830/AB90E177-EBD5-42AF-A94E-05F24787DEE2_znfguf.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750255830/AB90E177-EBD5-42AF-A94E-05F24787DEE2_znfguf.png",
+    ],
     categoryId: 2,
     stock: 90,
     totalSold: 180,
@@ -449,7 +475,9 @@ export const products = [
     gender: "female",
     price: 180,
     salePrice: 150,
-    image: ["https://res.cloudinary.com/dywjhzbti/image/upload/v1750112661/hoodies2_voebfw.png"],
+    image: [
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750112661/hoodies2_voebfw.png",
+    ],
     categoryId: 3,
     stock: 55,
     totalSold: 85,
@@ -600,89 +628,112 @@ export const reviews = [
   },
 ];
 
-
 export const announcement = [
   {
     id: 1,
     title: "Announcement",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, voluptatum nulla deserunt inventore error minima officia ab aspernatur aliquid sequi veniam, quae laboriosam voluptas quisquam eaque vel, dolorum ex repellat id atque voluptatem assumenda ducimus! Nostrum, optio. Laborum eum quos, deserunt necessitatibus at quia expedita a quasi dolore modi repellendus soluta facilis, fugiat asperiores voluptas sit facere voluptatibus officia nesciunt laboriosam praesentium architecto quaerat possimus! Eveniet doloremque non, laudantium, praesentium quidem rem amet incidunt quisquam expedita repellat reprehenderit temporibus cupiditate obcaecati, a omnis commodi facere aliquam numquam error. Ab cupiditate maiores ipsa quia, laboriosam suscipit repellendus aperiam neque nam ratione?"
-  }
-]
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, voluptatum nulla deserunt inventore error minima officia ab aspernatur aliquid sequi veniam, quae laboriosam voluptas quisquam eaque vel, dolorum ex repellat id atque voluptatem assumenda ducimus! Nostrum, optio. Laborum eum quos, deserunt necessitatibus at quia expedita a quasi dolore modi repellendus soluta facilis, fugiat asperiores voluptas sit facere voluptatibus officia nesciunt laboriosam praesentium architecto quaerat possimus! Eveniet doloremque non, laudantium, praesentium quidem rem amet incidunt quisquam expedita repellat reprehenderit temporibus cupiditate obcaecati, a omnis commodi facere aliquam numquam error. Ab cupiditate maiores ipsa quia, laboriosam suscipit repellendus aperiam neque nam ratione?",
+  },
+];
 
 export const stories = [
   {
     productId: 1,
     title: "Product 1",
     description: "product description",
-    video: "https://res.cloudinary.com/dywjhzbti/video/upload/v1750275903/Outfit_ideas_from_meesho_outfitideas_meeshohaul_meesho_koreanfashion_pinterest_u3rgrh.mp4",
-    thumbnail: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276930/IMG_2436_kd3dvm.jpg",
-    totalLike: 0
+    video:
+      "https://res.cloudinary.com/dywjhzbti/video/upload/v1750275903/Outfit_ideas_from_meesho_outfitideas_meeshohaul_meesho_koreanfashion_pinterest_u3rgrh.mp4",
+    thumbnail:
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276930/IMG_2436_kd3dvm.jpg",
+    totalLike: 0,
   },
   {
     productId: 2,
     title: "Product 2",
     description: "product description",
-    video: "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276450/Winter_Dress_Designs_fashion_winterwear_shorts_foryou_viral_xayoan.mp4",
-    thumbnail: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276932/IMG_2437_wfs80t.jpg",
-    totalLike: 0
+    video:
+      "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276450/Winter_Dress_Designs_fashion_winterwear_shorts_foryou_viral_xayoan.mp4",
+    thumbnail:
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276932/IMG_2437_wfs80t.jpg",
+    totalLike: 0,
   },
   {
     productId: 3,
     title: "Product 3",
     description: "product description",
-    video: "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276453/Simple_dress_designs_with_lace_foryou_fashiontrends_dresspakistanidressdesignforgirls_zs1bxi.mp4",
-    thumbnail: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276931/IMG_2438_pafqim.jpg",
-    totalLike: 0
+    video:
+      "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276453/Simple_dress_designs_with_lace_foryou_fashiontrends_dresspakistanidressdesignforgirls_zs1bxi.mp4",
+    thumbnail:
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276931/IMG_2438_pafqim.jpg",
+    totalLike: 0,
   },
   {
     productId: 4,
     title: "Product 4",
     description: "product description",
-    video: "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276464/Precision_in_every_cut_perfection_in_every_stitch._%EF%B8%8F_MadeWithLove_SHOP_AT_minsa.pk_gaktr1.mp4",
-    thumbnail: "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276931/IMG_2439_eeehrd.jpg",
-    totalLike: 0
+    video:
+      "https://res.cloudinary.com/dywjhzbti/video/upload/v1750276464/Precision_in_every_cut_perfection_in_every_stitch._%EF%B8%8F_MadeWithLove_SHOP_AT_minsa.pk_gaktr1.mp4",
+    thumbnail:
+      "https://res.cloudinary.com/dywjhzbti/image/upload/v1750276931/IMG_2439_eeehrd.jpg",
+    totalLike: 0,
   },
-]
-
+];
 
 export const flashtime = [
   {
     flashId: 1,
     flashName: "Big Friday",
     startTime: "2025-06-19 04:00:00",
-    endTime: "2025-06-20 04:00:00"
-  }
-]
+    endTime: "2025-06-20 04:00:00",
+  },
+];
 
 export const flashproducts = [
   {
     productId: 3,
     flashId: 1,
-    discount: 10
+    discount: 10,
   },
   {
     productId: 5,
     flashId: 1,
-    discount: 10
+    discount: 10,
   },
   {
     productId: 6,
     flashId: 1,
-    discount: 15
+    discount: 15,
   },
   {
     productId: 13,
     flashId: 1,
-    discount: 14
+    discount: 14,
   },
   {
     productId: 15,
     flashId: 1,
-    discount: 14
+    discount: 14,
   },
   {
     productId: 20,
     flashId: 1,
-    discount: 14
+    discount: 14,
   },
-]
+];
+
+export const banners = [
+  {
+    id: 1,
+    title: "Big sell",
+    descountDesc: "Up to 50%",
+    shortTitle: "Happening now",
+    image: {
+      url: "https://res.cloudinary.com/dywjhzbti/image/upload/image-from-rawpixel-id-16342606-png_ig0r2k.png",
+      bottom: 1,
+      right: 20,
+      width: 200,
+    },
+    bg: "yellow"
+  },
+];

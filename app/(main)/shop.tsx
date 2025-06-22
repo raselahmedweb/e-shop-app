@@ -8,20 +8,20 @@ import { Icon } from "@/components/ui/IconSymbol";
 import PopularProductCard from "@/components/ui/PopularProductCard";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
-import { announcement, categories, products, stories } from "@/data/Data";
+import { announcement, banners, categories, products, stories } from "@/data/Data";
 import { Link } from "expo-router";
 import { useContext, useState } from "react";
 import {
-    Image,
-    Modal,
-    Platform,
-    Pressable,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  Modal,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 const profile = require("@/assets/images/profile.jpg");
@@ -70,7 +70,6 @@ export default function Profile() {
     setModalVisible(true);
   };
 
-  const [story, setStory] = useState(stories);
   const [category, setCategory] = useState(categories);
 
   const styles = createStyle(theme, colorScheme);
@@ -86,130 +85,84 @@ export default function Profile() {
             gap: 10,
           }}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: 10,
-            }}
-          >
-            <View
+          <View>
+            <Text
               style={{
-                width: 50,
-                height: 50,
-                borderRadius: 100,
-                borderWidth: 5,
-                borderColor: "#fff",
-                shadowOffset: {
-                  width: 5,
-                  height: 5,
-                },
-                shadowOpacity: 0.3,
-                shadowRadius: 8,
-                shadowColor: "#000",
-                // Android shadow
-                elevation: 8,
-                backgroundColor: "#fff",
+                fontSize: 30,
+                fontFamily: "Raleway_700Bold",
               }}
             >
-              <Image
-                source={profile}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 100,
-                }}
-              />
-            </View>
-
-            <Pressable
-              style={{
-                backgroundColor: theme.primary,
-                height: 40,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15,
-                borderRadius: 30,
-              }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-                  fontFamily: "Raleway_400Regular",
-                  fontSize: 18,
-                }}
-              >
-                My activity
-              </Text>
-            </Pressable>
+              Shop
+            </Text>
           </View>
           <View
             style={{
+              position: "relative",
               flexDirection: "row",
-              justifyContent: "flex-end",
               alignItems: "center",
-              gap: 10,
+              flex: 1,
+              marginTop: 5
             }}
           >
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                width: 40,
-                height: 40,
-                borderRadius: 100,
-                backgroundColor: "#004CFF25",
-              }}
-            >
-              <Icon name="receipt-long" color={theme.primary} size={24} />
+            <View style={{ width: "100%" }}>
+              <TextInput
+                placeholder="Search"
+                placeholderTextColor="gray"
+                style={{
+                  height: 40,
+                  backgroundColor: "#f8f8f8",
+                  marginBottom: 10,
+                  paddingHorizontal: 20,
+                  borderRadius: 100,
+                  width: "100%",
+                }}
+              />
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                width: 40,
-                height: 40,
-                borderRadius: 100,
-                backgroundColor: "#004CFF25",
-              }}
-            >
-              <Icon name="menu" color={theme.primary} size={24} />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                width: 40,
-                height: 40,
-                borderRadius: 100,
-                backgroundColor: "#004CFF25",
-              }}
-            >
-              <Icon name="settings" color={theme.primary} size={24} />
+            <View style={{
+              position:'absolute',
+              top: 8,
+              right: 10
+            }}>
+              <Icon name="camera-alt" size={24} color={theme.primary} />
             </View>
           </View>
         </View>
         <View
           style={{
-            flexDirection: "column",
+            flexDirection: "row",
             justifyContent: "flex-start",
             alignItems: "flex-start",
           }}
         >
-          <Text
-            style={{
-              color: theme.text,
-              fontSize: 30,
-              fontFamily: "Raleway_800ExtraBold",
-            }}
-          >
-            Hello Rasel
-          </Text>
+          {banners.map((item)=>{
+            return(
+              <View key={item.id} style={{
+                backgroundColor: item.bg,
+                width: '100%',
+                position: 'relative',
+                padding: 20,
+                flexDirection: 'column'
+              }}>
+                <Text style={{
+                  fontSize: 40,
+                  fontFamily: 'Raleway_700Bold'
+                }}>{item.title}</Text>
+                <Text style={{
+                  fontSize: 20,
+                  fontFamily: 'Raleway_700Bold'
+                }}>{item.descountDesc}</Text>
+                <Text style={{
+                  fontSize: 30,
+                  fontFamily: 'Raleway_700Bold'
+                }}>{item.shortTitle}</Text>
+                <Image src={item.image.url} style={{
+                  position: 'absolute',
+                  top: 10,
+                  right: 10
+                }} />
+              </View>
+            )
+          })}
         </View>
         {announce &&
           announce.length > 0 &&

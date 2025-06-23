@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 import CategoryCard from "./ui/CategoryCard";
 import { Icon } from "./ui/IconSymbol";
 
-export default function CategoryAll({ theme }) {
+export default function CategoryAll({ theme, isShop = false }) {
   const category = categories;
   return (
     <View
@@ -31,36 +31,38 @@ export default function CategoryAll({ theme }) {
         >
           Category
         </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 5,
-          }}
-        >
-          <Link
-            style={{
-              color: theme.text,
-              fontWeight: "bold",
-              fontSize: 22,
-            }}
-            href={"/"}
-          >
-            See All
-          </Link>
+        {!isShop && (
           <View
             style={{
-              width: 40,
-              height: 40,
-              borderRadius: 100,
-              justifyContent: "center",
+              flexDirection: "row",
               alignItems: "center",
-              backgroundColor: theme.primary,
+              gap: 5,
             }}
           >
-            <Icon name="arrow-right-alt" color="#fff" size={28} />
+            <Link
+              style={{
+                color: theme.text,
+                fontWeight: "bold",
+                fontSize: 22,
+              }}
+              href={"/"}
+            >
+              See All
+            </Link>
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 100,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: theme.primary,
+              }}
+            >
+              <Icon name="arrow-right-alt" color="#fff" size={28} />
+            </View>
           </View>
-        </View>
+        )}
       </View>
       <View
         style={{

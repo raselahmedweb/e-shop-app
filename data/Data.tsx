@@ -684,8 +684,8 @@ export const flashtime = [
   {
     flashId: 1,
     flashName: "Big Friday",
-    startTime: "2025-06-19 04:00:00",
-    endTime: "2025-06-20 04:00:00",
+    startTime: "2025-06-23 04:00:00",
+    endTime: "2025-06-24 04:00:00",
   },
 ];
 

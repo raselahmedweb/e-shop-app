@@ -1,18 +1,13 @@
-
 import { ThemeContext } from "@/context/ThemeProvider";
-import {
-  flashproducts,
-  flashtime,
-  products
-} from "@/data/Data";
-import { useContext, useState } from 'react';
-import { Text, View } from 'react-native';
+import { flashproducts, flashtime, products } from "@/data/Data";
+import { useContext } from "react";
+import { Text, View } from "react-native";
 import FlashCard from "./ui/FlashCard";
 import FlashTimer from "./ui/FlashTimer";
 
 export default function FlashBox() {
   const { theme } = useContext(ThemeContext);
-  const [flash, setFlash] = useState(flashproducts);
+  const flash = flashproducts;
 
   const flashTime = flashtime[0];
   const now = new Date();
@@ -50,10 +45,9 @@ export default function FlashBox() {
         >
           Flash Sell
         </Text>
-       <View style={{ paddingHorizontal: 10 }}>
-  <FlashTimer />
-</View>
-
+        <View style={{ paddingHorizontal: 10 }}>
+          <FlashTimer />
+        </View>
       </View>
 
       <View

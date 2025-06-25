@@ -692,12 +692,12 @@ export default function SwipeBanner() {
       },
       onPanResponderRelease: (_, gestureState) => {
         const current = currentBannerRef.current;
-        console.log(
-          "Swipe detected:",
-          gestureState.dx,
-          "Current banner:",
-          current
-        );
+        // console.log(
+        //   "Swipe detected:",
+        //   gestureState.dx,
+        //   "Current banner:",
+        //   current
+        // );
 
         if (gestureState.dx < -10) {
           // Swipe left - next banner slides in from right
@@ -720,12 +720,12 @@ export default function SwipeBanner() {
     })
   ).current;
 
-  console.log(
-    "Current banner index:",
-    currentBanner,
-    "Total banners:",
-    banners.length
-  );
+  // console.log(
+  //   "Current banner index:",
+  //   currentBanner,
+  //   "Total banners:",
+  //   banners.length
+  // );
 
   return (
     <View
@@ -793,17 +793,22 @@ export default function SwipeBanner() {
               {banners[currentBanner]?.shortTitle || ""}
             </Text>
             {banners[currentBanner]?.image?.url && (
-              <Image
-                source={{ uri: banners[currentBanner].image.url }}
+              <View
                 style={{
                   position: "absolute",
-                  bottom: 0,
-                  right: 20,
+                  bottom: banners[currentBanner]?.image?.bottom,
+                  right: banners[currentBanner]?.image?.right,
                   zIndex: 1,
-                  width: 130,
-                  height: 130,
+                  width: banners[currentBanner]?.image?.width,
+                  height: banners[currentBanner]?.image?.height,
                 }}
-              />
+              >
+                <Image
+                  source={{ uri: banners[currentBanner].image.url }}
+                  style={{ flex: 1 }}
+                  resizeMode="contain"
+                />
+              </View>
             )}
           </View>
         </Animated.View>

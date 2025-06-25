@@ -3,9 +3,9 @@ import FlashBox from "@/components/FlashBox";
 import ForYouBox from "@/components/ForYouBox";
 import RecentlyViewd from "@/components/RecentlyViewd";
 import Stories from "@/components/stories";
+import TopProduct from "@/components/TopProduct";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/IconSymbol";
-import PopularProductCard from "@/components/ui/PopularProductCard";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
 import { announcement, products, stories } from "@/data/Data";
@@ -425,80 +425,7 @@ export default function Profile() {
             </View>
           </ScrollView>
         </View>
-        <View
-          style={{
-            width: "100%",
-            flexDirection: "column",
-          }}
-        >
-          <View
-            style={{
-              width: "100%",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                color: theme.text,
-                fontSize: 26,
-                fontFamily: "Raleway_800ExtraBold",
-              }}
-            >
-              Most Popular
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-              }}
-            >
-              <Link
-                style={{
-                  color: theme.text,
-                  fontWeight: "bold",
-                  fontSize: 22,
-                }}
-                href={"/"}
-              >
-                See All
-              </Link>
-              <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 100,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: theme.primary,
-                }}
-              >
-                <Icon name="arrow-right-alt" color="#fff" size={28} />
-              </View>
-            </View>
-          </View>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View
-              style={{
-                flexDirection: "row",
-                gap: 15,
-                paddingHorizontal: 5,
-                overflow: "visible",
-                paddingVertical: 15,
-              }}
-            >
-              {popularProducts.map((item, index) => (
-                <PopularProductCard
-                  key={index}
-                  img={item.image[0]}
-                  totalSold={item.totalSold}
-                />
-              ))}
-            </View>
-          </ScrollView>
-        </View>
+        <TopProduct theme={theme}/>
         <CategoryAll theme={theme} />
         <FlashBox />
         <ForYouBox />

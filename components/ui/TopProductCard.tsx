@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Image, Text, View } from "react-native";
-export default function PopularProductCard(props: {
+export default function TopProductCard(props: {
   img: string;
   totalSold?: number;
 }) {

@@ -10,7 +10,7 @@ export default function ForYouBox() {
 
   const [userInterest, setUserInterest] = useState({
     search: ["shoes", "shirt", "bags"],
-    visited: [1, 5, 6, 9, 19, 20],
+    visited: [1, 5, 6, 9, 19, 23],
     loved: [4, 5, 6, 20],
     cart: [6, 20],
   });

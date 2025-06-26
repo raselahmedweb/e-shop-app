@@ -142,7 +142,7 @@ export default function Profile() {
                   fontWeight: "bold",
                   fontSize: 22,
                 }}
-                href={"/"}
+                href={"/shop"}
               >
                 See All
               </Link>

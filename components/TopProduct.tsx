@@ -47,7 +47,7 @@ export default function TopProduct({theme}) {
                       fontWeight: "bold",
                       fontSize: 22,
                     }}
-                    href={"/"}
+                    href={"/shop"}
                   >
                     See All
                   </Link>

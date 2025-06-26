@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 import CategoryCard from "./ui/CategoryCard";
 import { Icon } from "./ui/IconSymbol";
 
-export default function CategoryAll({ theme, isShop = false }) {
+export default function CategoryAll({ theme, isCategory = false }) {
   const category = categories;
   return (
     <View
@@ -31,7 +31,7 @@ export default function CategoryAll({ theme, isShop = false }) {
         >
           Category
         </Text>
-        {!isShop && (
+        {!isCategory && (
           <View
             style={{
               flexDirection: "row",
@@ -45,7 +45,7 @@ export default function CategoryAll({ theme, isShop = false }) {
                 fontWeight: "bold",
                 fontSize: 22,
               }}
-              href={"/"}
+              href={"/category"}
             >
               See All
             </Link>

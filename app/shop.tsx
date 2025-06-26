@@ -187,7 +187,7 @@ export default function ShopFull() {
                   fontWeight: "bold",
                   fontSize: 22,
                 }}
-                href={"/"}
+                href={"/shop"}
               >
                 See All
               </Link>
@@ -249,34 +249,6 @@ function createStyle(theme, colorScheme) {
       backgroundColor: theme.bg,
       gap: 20,
       overflow: "visible",
-    },
-    modalOverlay: {
-      flex: 1,
-      justifyContent: "center",
-      backgroundColor: "rgba(0,0,0,0.6)",
-      padding: 20,
-    },
-    modalContent: {
-      backgroundColor: "#fff",
-      borderRadius: 20,
-      padding: 20,
-    },
-    modalTitle: {
-      fontSize: 24,
-      fontWeight: "bold",
-      marginBottom: 10,
-    },
-    modalDescription: {
-      fontSize: 16,
-      color: "#444",
-    },
-    closeButton: {
-      marginTop: 20,
-      alignSelf: "flex-end",
-      backgroundColor: "#007bff",
-      paddingVertical: 8,
-      paddingHorizontal: 16,
-      borderRadius: 8,
     },
   });
 }

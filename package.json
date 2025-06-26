@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+   "push": "git add . && git commit -m \"%MSG%\" && git push -u origin main"
   },
   "dependencies": {
     "@expo-google-fonts/raleway": "^0.4.1",

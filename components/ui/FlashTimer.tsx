@@ -1,14 +1,12 @@
 import { flashtime } from "@/data/Data";
 import { Ionicons } from "@expo/vector-icons"; // For stopwatch icon
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
 export default function FlashTimer() {
   const endTime = new Date(flashtime[0].endTime).getTime();
 
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
-
-  function getTimeLeft() {
+  const getTimeLeft = useCallback(() => {
     const now = new Date().getTime();
     const diff = Math.max(endTime - now, 0);
 
@@ -20,15 +18,15 @@ export default function FlashTimer() {
     const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
 
     return { hours, minutes, seconds };
-  }
-
+  }, [endTime]);
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [getTimeLeft]);
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>

@@ -7,6 +7,7 @@ import { Icon } from "@/components/ui/IconSymbol";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
 import { products } from "@/data/Data";
+import { ITheme } from "@/type/type";
 import { Link } from "expo-router";
 import { useContext } from "react";
 import {
@@ -44,7 +45,6 @@ export default function Profile() {
   });
 
   const nearestProducts = sortedProducts.slice(0, 6);
-
 
   const styles = createStyle(theme, colorScheme);
   return (
@@ -176,19 +176,20 @@ export default function Profile() {
                   description={item.description}
                   title={item.title}
                   price={item.price}
+                  id={item.id}
                 />
               ))}
             </View>
           </ScrollView>
         </View>
-        <TopProduct theme={theme}/>
+        <TopProduct theme={theme} />
         <ForYouBox />
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-function createStyle(theme, colorScheme) {
+function createStyle(theme: ITheme, colorScheme: string) {
   return StyleSheet.create({
     safeArea: {
       flex: 1,

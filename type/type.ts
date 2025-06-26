@@ -2,7 +2,7 @@ import { Colors } from "@/constants/Colors";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface ThemeProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export interface ThemeContextType {
@@ -12,5 +12,42 @@ export interface ThemeContextType {
 }
 
 export interface AuthProviderProps {
-  children: ReactNode
+  children: ReactNode;
+}
+
+export interface ITheme {
+  text: string;
+  bg: string;
+  primary: string;
+}
+
+export interface IProducts {
+  id: number;
+  title: string;
+  description: string;
+  gender: string;
+  price: number;
+  salePrice: number;
+  image: string[];
+  categoryId: number;
+  subCategoryId: number;
+  stock: string;
+  totalSold: number;
+  sizes: string;
+  colors: string;
+  deliveryCharge: number;
+  flash: string;
+  featured: boolean;
+  isAvailable: boolean;
+  brand: string;
+  material: string;
+  rating: number;
+  tags: string;
+  createdAt: Date;
+}
+
+export interface IAnnounce {
+  id: number;
+  title: string;
+  description: string;
 }

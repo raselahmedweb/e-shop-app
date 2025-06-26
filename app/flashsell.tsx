@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { ThemeContext } from "@/context/ThemeProvider";
+import { ITheme } from "@/type/type";
 import { Link, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useContext } from "react";
@@ -21,7 +22,11 @@ const bubble3 = require("@/assets/bubble/bubble3.png");
 const bubble4 = require("@/assets/bubble/bubble4.png");
 
 export default function FlashSellProducts() {
-  const { theme, colorScheme } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext)
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+
+  const { theme, colorScheme } = themeContext;
   const styles = createStyle(theme, colorScheme);
   const goHome = () => {
     router.push("/profile");
@@ -43,7 +48,13 @@ export default function FlashSellProducts() {
         </View>
 
         <View style={styles.form}>
-          <Input placeholder="Your email" />
+          <Input
+            style={{}}
+            key={1}
+            placeholder="Your email"
+            value=""
+            onChangeText={(e: any) => console.log(e)}
+          />
         </View>
 
         <View style={styles.actions}>
@@ -59,7 +70,7 @@ export default function FlashSellProducts() {
   );
 }
 
-function createStyle(theme, colorScheme) {
+function createStyle(theme: ITheme, colorScheme: string) {
   return StyleSheet.create({
     safeArea: {
       flex: 1,

@@ -6,7 +6,11 @@ import FlashCard from "./ui/FlashCard";
 import FlashTimer from "./ui/FlashTimer";
 
 export default function FlashBox() {
-  const { theme } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext)
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+
+  const { theme } = themeContext;
   const flash = flashproducts;
 
   const flashTime = flashtime[0];

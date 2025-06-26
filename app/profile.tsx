@@ -9,6 +9,7 @@ import { Icon } from "@/components/ui/IconSymbol";
 import ProductCard from "@/components/ui/ProductCard";
 import { ThemeContext } from "@/context/ThemeProvider";
 import { announcement, products, stories } from "@/data/Data";
+import { IAnnounce, ITheme } from "@/type/type";
 import { Link } from "expo-router";
 import { useContext, useState } from "react";
 import {
@@ -42,30 +43,22 @@ export default function Profile() {
     }
     return new Date(); // fallback
   };
-  const today = new Date();
+  const today: any = new Date();
 
   const sortedProducts = [...products].sort((a, b) => {
-    const dateA = parseDate(a.createdAt);
-    const dateB = parseDate(b.createdAt);
+    const dateA: any = parseDate(a.createdAt);
+    const dateB: any = parseDate(b.createdAt);
     return Math.abs(dateA - today) - Math.abs(dateB - today);
   });
 
   const nearestProducts = sortedProducts.slice(0, 6);
 
-  const popularProducts = [...products]
-    .sort((a, b) => b.totalSold - a.totalSold)
-    .slice(0, 6); // take top 6
-
-  const [announce, setAnnounce] = useState([]);
-  useState(() => {
-    const fetchAnnounce = announcement;
-    setAnnounce(fetchAnnounce);
-  }, [announce]);
+  const announce: IAnnounce[] = announcement;
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState<IAnnounce | null>(null);
 
-  const openModal = (item) => {
+  const openModal = (item: IAnnounce) => {
     setSelectedItem(item);
     setModalVisible(true);
   };
@@ -420,12 +413,13 @@ export default function Profile() {
                   description={item.description}
                   title={item.title}
                   price={item.price}
+                  id={item.id}
                 />
               ))}
             </View>
           </ScrollView>
         </View>
-        <TopProduct theme={theme}/>
+        <TopProduct theme={theme} />
         <CategoryAll theme={theme} />
         <FlashBox />
         <ForYouBox />
@@ -434,7 +428,7 @@ export default function Profile() {
   );
 }
 
-function createStyle(theme, colorScheme) {
+function createStyle(theme: ITheme, colorScheme: string) {
   return StyleSheet.create({
     safeArea: {
       flex: 1,

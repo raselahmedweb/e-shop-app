@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 import CategoryCard from "./ui/CategoryCard";
 import { Icon } from "./ui/IconSymbol";
 
-export default function CategoryAll({ theme, isCategory = false }) {
+export default function CategoryAll({ theme, isCategory = false }: any) {
   const category = categories;
   return (
     <View

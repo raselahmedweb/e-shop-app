@@ -25,8 +25,8 @@ import { AuthProvider } from "@/context/AuthProvider";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { ActivityIndicator, View } from "react-native";
+
+import { ActivityIndicator, StatusBar, View } from "react-native";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -132,8 +132,19 @@ export default function RootLayout() {
               headerShown: false,
             }}
           />
+          <Tabs.Screen
+            name="shop/[id]"
+            options={{
+              href: null, // This hides it from the tab bar
+              headerShown: false,
+            }}
+          />
         </Tabs>
-        <StatusBar style="auto" />
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor="#fff"
+          animated={true}
+        />
       </ThemeProvider>
     </AuthProvider>
   );

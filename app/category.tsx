@@ -1,6 +1,7 @@
 import CategoryAll from "@/components/CategoryAll";
 import { Icon } from "@/components/ui/IconSymbol";
 import { ThemeContext } from "@/context/ThemeProvider";
+import { ITheme } from "@/type/type";
 import { useContext } from "react";
 import {
   Platform,
@@ -12,7 +13,11 @@ import {
 } from "react-native";
 
 export default function Category() {
-  const { theme, colorScheme } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext)
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+
+  const { theme, colorScheme } = themeContext;
 
   const styles = createStyle(theme, colorScheme);
   return (
@@ -77,7 +82,7 @@ export default function Category() {
   );
 }
 
-function createStyle(theme, colorScheme) {
+function createStyle(theme: ITheme, colorScheme: string) {
   return StyleSheet.create({
     safeArea: {
       flex: 1,

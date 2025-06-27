@@ -196,44 +196,14 @@ function createStyle(theme: ITheme, colorScheme: string) {
       backgroundColor: theme.bg,
     },
     container: {
-      // flex: 1,
       flexDirection: "column",
       justifyContent: "flex-start",
       alignItems: "flex-start",
       paddingHorizontal: 24,
-      paddingTop: Platform.OS === "android" ? 40 : 0,
-      paddingBottom: 40,
+      paddingTop: Platform.OS === "android" ? 20 : 0,
       backgroundColor: theme.bg,
       gap: 20,
       overflow: "visible",
-    },
-    modalOverlay: {
-      flex: 1,
-      justifyContent: "center",
-      backgroundColor: "rgba(0,0,0,0.6)",
-      padding: 20,
-    },
-    modalContent: {
-      backgroundColor: "#fff",
-      borderRadius: 20,
-      padding: 20,
-    },
-    modalTitle: {
-      fontSize: 24,
-      fontWeight: "bold",
-      marginBottom: 10,
-    },
-    modalDescription: {
-      fontSize: 16,
-      color: "#444",
-    },
-    closeButton: {
-      marginTop: 20,
-      alignSelf: "flex-end",
-      backgroundColor: "#007bff",
-      paddingVertical: 8,
-      paddingHorizontal: 16,
-      borderRadius: 8,
     },
   });
 }

@@ -6,6 +6,7 @@ import { useContext } from "react";
 import {
   Platform,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -22,7 +23,7 @@ export default function Category() {
   const styles = createStyle(theme, colorScheme);
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View
           style={{
             width: "100%",
@@ -77,7 +78,7 @@ export default function Category() {
           </View>
         </View>
         <CategoryAll theme={theme} isCategory={true} />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -94,10 +95,8 @@ function createStyle(theme: ITheme, colorScheme: string) {
       justifyContent: "flex-start",
       alignItems: "flex-start",
       paddingHorizontal: 24,
-      paddingTop: Platform.OS === "android" ? 40 : 0,
-      paddingBottom: 40,
+      paddingTop: Platform.OS === "android" ? 20 : 0,
       backgroundColor: theme.bg,
-      gap: 20,
       overflow: "visible",
     },
   });

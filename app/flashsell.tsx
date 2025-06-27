@@ -77,12 +77,14 @@ function createStyle(theme: ITheme, colorScheme: string) {
       backgroundColor: theme.bg,
     },
     container: {
-      flex: 1,
-      justifyContent: "flex-end",
-      alignItems: "center",
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
       paddingHorizontal: 24,
-      paddingBottom: 40,
+      paddingTop: Platform.OS === "android" ? 20 : 0,
       backgroundColor: theme.bg,
+      gap: 20,
+      overflow: "visible",
     },
     headingContainer: {
       width: "100%",

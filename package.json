@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-   "push": "git add . && git commit -m \"%MSG%\" && git push -u origin main"
+    "push": "git add . && git commit -m \"%MSG%\" && git push -u origin main"
   },
   "dependencies": {
     "@expo-google-fonts/raleway": "^0.4.1",
@@ -39,7 +39,8 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-web": "~0.20.0",
-    "react-native-webview": "13.13.5"
+    "react-native-webview": "13.13.5",
+    "expo-dev-client": "~5.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
